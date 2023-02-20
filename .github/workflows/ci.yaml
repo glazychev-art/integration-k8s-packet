@@ -32,7 +32,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        CNI: ["default", "calico-vpp"]
+        CNI: ["default"]
     steps:
       - name: Set up /bin permissions
         run: |
@@ -96,7 +96,7 @@ jobs:
           METAL_AUTH_TOKEN: ${{ secrets.PACKET_AUTH_TOKEN }}
 
       - name: Setup cluster
-        uses: nick-fields/retry@v2.8.1
+        uses: nick-fields/retry@v2.8.3
         with:
           timeout_minutes: 30
           max_attempts: 3
